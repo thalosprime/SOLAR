@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Cleaning Solar System - LV Solar Panel Cleaning</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Never call a cleaner again! Our self-cleaning solar panel system offers lifetime warranties, quality materials, and one-time installation. Protect your roof and maximize efficiency.">
+    <meta name="keywords" content="self-cleaning solar panels, automated solar cleaning, Las Vegas solar, solar panel system, lifetime warranty">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Premium Tesla-Inspired Color Palette */
+            --electric-blue: #00d4ff;
+            --electric-blue-glow: rgba(0, 212, 255, 0.4);
+            --deep-blue: #0066ff;
+            --accent-cyan: #00ffff;
+            --gold-accent: #ffd700;
+
+            --bg-black: #000000;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #050505;
+            --surface-dark: #1a1a1a;
+            --surface-light: #2a2a2a;
+
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --text-dim: #666666;
+
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--electric-blue);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            50% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0.4;
+            }
+            90% { opacity: 0.8; }
+        }
+
+        /* Header Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 1rem 3rem;
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-white);
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px var(--electric-blue-glow);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .hamburger {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--electric-blue);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px var(--electric-blue-glow);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .call-btn {
+            background: linear-gradient(135deg, var(--electric-blue), var(--deep-blue));
+            color: var(--text-white);
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px var(--electric-blue-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .call-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .call-btn:hover::before {
+            left: 100%;
+        }
+
+        .call-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px var(--electric-blue-glow);
+        }
+
+        /* Mobile Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            padding: 8rem 3rem 3rem;
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 999;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1.25rem 0;
+            color: var(--text-white);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 0;
+            height: 2px;
+            background: var(--electric-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--electric-blue);
+            padding-left: 1rem;
+        }
+
+        .nav-menu a:hover::before {
+            width: 100%;
+        }
+
+        /* Hero Video Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 102, 255, 0.3));
+            opacity: 0;
+            transition: opacity 2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero-overlay.active {
+            opacity: 1;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 5.5rem;
+            font-weight: 900;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff, var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 1.5s ease forwards;
+            opacity: 0;
+            animation-delay: 0.3s;
+            text-shadow: 0 0 80px var(--electric-blue-glow);
+        }
+
+        .hero-subtitle {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--text-white);
+            letter-spacing: 2px;
+            animation: subtitleSlide 1.5s ease forwards;
+            opacity: 0;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes titleGlow {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes subtitleSlide {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Container */
+        section {
+            padding: 8rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-white), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            color: var(--text-gray);
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+        /* Stats Counter Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--bg-darker), var(--surface-dark));
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--electric-blue);
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px var(--electric-blue-glow);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Before/After Slider Section */
+        .before-after-section {
+            background: var(--bg-dark);
+        }
+
+        .slider-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-before {
+            z-index: 2;
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+            transition: clip-path 0.3s ease;
+        }
+
+        .slider-divider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--electric-blue);
+            z-index: 3;
+            box-shadow: 0 0 20px var(--electric-blue-glow);
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--electric-blue);
+            border-radius: 50%;
+            z-index: 4;
+            cursor: ew-resize;
+            box-shadow: 0 0 30px var(--electric-blue-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-black);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .slider-label {
+            position: absolute;
+            top: 2rem;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            z-index: 3;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .label-before {
+            left: 2rem;
+            color: #ff4444;
+        }
+
+        .label-after {
+            right: 2rem;
+            color: #00ff88;
+        }
+
+        /* Benefits Grid - Glassmorphism */
+        .benefits-section {
+            background: var(--bg-black);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 3rem;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--electric-blue);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 0 20px var(--electric-blue-glow));
+        }
+
+        .benefit-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--electric-blue);
+            letter-spacing: 1px;
+        }
+
+        .benefit-description {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(135deg, var(--surface-dark), var(--bg-darker));
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--electric-blue);
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: var(--gold-accent);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-white);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--electric-blue), var(--deep-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ROI Calculator Section */
+        .roi-section {
+            background: var(--bg-black);
+        }
+
+        .calculator-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 212, 255, 0.2);
+        }
+
+        .calculator-input {
+            margin-bottom: 2.5rem;
+        }
+
+        .calculator-input label {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--electric-blue);
+        }
+
+        .calculator-input input {
+            width: 100%;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-white);
+            font-size: 1.5rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-input input:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 30px var(--electric-blue-glow);
+        }
+
+        .calculator-result {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 102, 255, 0.2));
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--electric-blue);
+        }
+
+        .result-label {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .result-value {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--electric-blue);
+            text-shadow: 0 0 40px var(--electric-blue-glow);
+        }
+
+        /* Installation Timeline */
+        .timeline-section {
+            background: linear-gradient(135deg, var(--bg-darker), var(--surface-dark));
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 4rem auto 0;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--electric-blue), transparent);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 2.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            margin: 0 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--electric-blue);
+            transform: scale(1.05);
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--deep-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            box-shadow: 0 0 40px var(--electric-blue-glow);
+            z-index: 2;
+        }
+
+        .timeline-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--electric-blue);
+        }
+
+        .timeline-description {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            background: var(--bg-black);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 212, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--electric-blue);
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-white);
+            font-family: var(--font-primary);
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 20px var(--electric-blue-glow);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--electric-blue), var(--deep-blue));
+            color: var(--text-white);
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 40px var(--electric-blue-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 60px var(--electric-blue-glow);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-darker);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--text-white), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-contact-item strong {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-contact-item a {
+            color: var(--electric-blue);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--text-white);
+            text-shadow: 0 0 20px var(--electric-blue-glow);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .header {
+                padding: 1.5rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .benefits-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slider-container {
+                height: 400px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+            }
+
+            .timeline-number {
+                left: 30px;
+                transform: translateX(0);
+            }
+
+            .timeline-content {
+                margin: 0 0 0 90px;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .contact-form,
+            .calculator-container {
+                padding: 2.5rem;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="logo">LV SOLAR PANEL CLEANING</div>
+        <div class="header-right">
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="tel:702-482-9025" class="call-btn">CALL NOW</a>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+        <a href="https://lvsolarpanelcleaning.com/">HOME</a>
+        <a href="https://lvsolarpanelcleaning.com/about">ABOUT</a>
+        <a href="https://lvsolarpanelcleaning.com/contact">CONTACT</a>
+    </nav>
+
+    <!-- Hero Video Section -->
+    <section class="hero-section">
+        <video class="hero-video" id="heroVideo" autoplay muted playsinline>
+            <source src="assets/self-cleaning-solar-hero.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay" id="heroOverlay">
+            <h1 class="hero-title">SELF-CLEANING<br>SOLAR SYSTEM</h1>
+            <p class="hero-subtitle">Never Call a Cleaner Again</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-target="2500">0</div>
+                    <div class="stat-label">Annual Savings</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">Efficiency Rate</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-target="1">0</div>
+                    <div class="stat-label">Installation</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-target="365">0</div>
+                    <div class="stat-label">Days Clean</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="before-after-section">
+        <div class="container">
+            <h2 class="section-title fade-in">See The Difference</h2>
+            <p class="section-subtitle fade-in">Dirty panels can lose 20-30% efficiency. Don't let dust cost you money.</p>
+
+            <div class="slider-container fade-in" id="sliderContainer">
+                <img src="assets/solar-panels-dirty.jpg" alt="Dirty Solar Panels" class="slider-image slider-before" id="sliderBefore">
+                <img src="assets/solar-panels-clean.jpg" alt="Clean Solar Panels" class="slider-image">
+                <div class="slider-divider" id="sliderDivider"></div>
+                <div class="slider-handle" id="sliderHandle">⟷</div>
+                <div class="slider-label label-before">BEFORE</div>
+                <div class="slider-label label-after">AFTER</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Revolutionary Benefits</h2>
+            <p class="section-subtitle fade-in">Experience the future of solar maintenance</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <span class="benefit-icon">💎</span>
+                    <h3 class="benefit-title">One-Time Investment</h3>
+                    <p class="benefit-description">
+                        Stop paying cleaners $200-400 four times a year. Our system pays for itself in under 3 years, then saves you money for decades.
+                    </p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <span class="benefit-icon">🛡️</span>
+                    <h3 class="benefit-title">Zero Roof Damage</h3>
+                    <p class="benefit-description">
+                        Broken tiles. Water damage. Unreported issues. These are the hidden costs of manual cleaning. Our system eliminates the risk entirely.
+                    </p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <span class="benefit-icon">⚡</span>
+                    <h3 class="benefit-title">Peak Performance 24/7</h3>
+                    <p class="benefit-description">
+                        Clean panels every single day. Maximize energy production and savings. In the Las Vegas desert, dust accumulates fast—stay ahead of it.
+                    </p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <span class="benefit-icon">🏆</span>
+                    <h3 class="benefit-title">Lifetime Warranty</h3>
+                    <p class="benefit-description">
+                        Comprehensive coverage on materials and workmanship. We're so confident in our system, we back it for life.
+                    </p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <span class="benefit-icon">🔧</span>
+                    <h3 class="benefit-title">Military-Grade Materials</h3>
+                    <p class="benefit-description">
+                        Built to survive extreme Las Vegas heat, monsoon storms, and sandstorms. Premium components engineered for longevity.
+                    </p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <span class="benefit-icon">🤖</span>
+                    <h3 class="benefit-title">Fully Automated</h3>
+                    <p class="benefit-description">
+                        Set your schedule and forget it exists. Daily, weekly, or custom intervals. Your panels stay pristine without you lifting a finger.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title fade-in">What Our Customers Say</h2>
+            <p class="section-subtitle fade-in">Join hundreds of satisfied homeowners in Las Vegas</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Best investment I've made in my home. I was paying $300 every 3 months for cleaning. This system paid for itself in 2 years and my energy bills have never been lower. Absolutely worth it!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Henderson, NV</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "After a cleaning company broke three of my roof tiles and didn't tell me, I had a $2,400 leak repair. This system means no one ever has to step on my roof again. Peace of mind is priceless."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Summerlin, NV</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Living near the desert, my panels would get covered in dust every week. Now they're spotless 365 days a year. My solar production increased 28% after installation. Game changer!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DM</div>
+                        <div class="author-info">
+                            <h4>David Martinez</h4>
+                            <p>Las Vegas, NV</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="roi-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Calculate Your Savings</h2>
+            <p class="section-subtitle fade-in">See how much you'll save over the lifetime of your system</p>
+
+            <div class="calculator-container fade-in">
+                <div class="calculator-input">
+                    <label for="panelCount">Number of Solar Panels</label>
+                    <input type="number" id="panelCount" placeholder="e.g., 24" min="1" value="24">
+                </div>
+
+                <div class="calculator-result">
+                    <div class="result-label">10-Year Savings</div>
+                    <div class="result-value" id="savingsResult">$12,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Simple Installation Process</h2>
+            <p class="section-subtitle fade-in">From consultation to clean panels in 3 easy steps</p>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Free Consultation</h3>
+                        <p class="timeline-description">
+                            We assess your solar setup, measure your panels, and provide a custom quote. No obligation, no pressure—just expert advice.
+                        </p>
+                    </div>
+                    <div class="timeline-number">1</div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Professional Installation</h3>
+                        <p class="timeline-description">
+                            Our certified technicians install your self-cleaning system in one day. Minimal disruption, maximum quality. Lifetime warranty included.
+                        </p>
+                    </div>
+                    <div class="timeline-number">2</div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Enjoy Clean Panels Forever</h3>
+                        <p class="timeline-description">
+                            Set your cleaning schedule and never think about it again. Your panels stay spotless, your energy production stays high, and you save thousands.
+                        </p>
+                    </div>
+                    <div class="timeline-number">3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Get Your Free Quote</h2>
+            <p class="section-subtitle fade-in">Ready to never call a cleaner again?</p>
+
+            <form class="contact-form fade-in" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Property Address</label>
+                    <input type="text" id="address" name="address">
+                </div>
+
+                <div class="form-group">
+                    <label for="panels">Number of Solar Panels</label>
+                    <input type="text" id="panels" name="panels" placeholder="Approximate count">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Additional Details</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your solar system..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Get Free Consultation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">LV SOLAR PANEL CLEANING</div>
+
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <strong>CALL US</strong>
+                    <a href="tel:702-482-9025">702-482-9025</a>
+                </div>
+
+                <div class="footer-contact-item">
+                    <strong>EMAIL US</strong>
+                    <a href="mailto:LVSOLARPANELCLEANING@OUTLOOK.COM">LVSOLARPANELCLEANING@OUTLOOK.COM</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2025 LV Solar Panel Cleaning. All rights reserved. | Serving Las Vegas & Henderson
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Animated Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Hero Video Overlay Effect
+        const heroVideo = document.getElementById('heroVideo');
+        const heroOverlay = document.getElementById('heroOverlay');
+
+        heroVideo.addEventListener('ended', () => {
+            heroOverlay.classList.add('active');
+        });
+
+        // Before/After Slider
+        const sliderContainer = document.getElementById('sliderContainer');
+        const sliderBefore = document.getElementById('sliderBefore');
+        const sliderDivider = document.getElementById('sliderDivider');
+        const sliderHandle = document.getElementById('sliderHandle');
+
+        let isDragging = false;
+
+        function updateSlider(x) {
+            const rect = sliderContainer.getBoundingClientRect();
+            const position = Math.max(0, Math.min(x - rect.left, rect.width));
+            const percentage = (position / rect.width) * 100;
+
+            sliderBefore.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
+            sliderDivider.style.left = percentage + '%';
+            sliderHandle.style.left = percentage + '%';
+        }
+
+        sliderHandle.addEventListener('mousedown', () => isDragging = true);
+        document.addEventListener('mouseup', () => isDragging = false);
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) updateSlider(e.clientX);
+        });
+
+        sliderHandle.addEventListener('touchstart', () => isDragging = true);
+        document.addEventListener('touchend', () => isDragging = false);
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging) updateSlider(e.touches[0].clientX);
+        });
+
+        // Animated Counter
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = Math.floor(current).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    if (target === 99) {
+                        element.textContent = target + '%';
+                    } else if (target === 2500) {
+                        element.textContent = '$' + target.toLocaleString();
+                    } else {
+                        element.textContent = target.toLocaleString();
+                    }
+                }
+            };
+
+            updateCounter();
+        }
+
+        // ROI Calculator
+        const panelCountInput = document.getElementById('panelCount');
+        const savingsResult = document.getElementById('savingsResult');
+
+        function calculateSavings() {
+            const panels = parseInt(panelCountInput.value) || 24;
+            const annualCost = 1200; // $300 x 4 cleanings per year
+            const savings = annualCost * 10; // 10 years
+            savingsResult.textContent = '$' + savings.toLocaleString();
+        }
+
+        panelCountInput.addEventListener('input', calculateSavings);
+        calculateSavings();
+
+        // Scroll Animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Animate counters when visible
+                    if (entry.target.classList.contains('stat-item')) {
+                        const counter = entry.target.querySelector('.stat-number');
+                        if (counter && !counter.classList.contains('animated')) {
+                            counter.classList.add('animated');
+                            animateCounter(counter);
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.2 });
+
+        fadeElements.forEach(element => observer.observe(element));
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                panels: document.getElementById('panels').value,
+                message: document.getElementById('message').value
+            };
+
+            console.log('Form submitted:', formData);
+
+            alert('Thank you for your inquiry! We will contact you within 24 hours to schedule your free consultation.');
+
+            contactForm.reset();
+            calculateSavings();
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/690068935f3942194ff1914c/1j8kph03t';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>
